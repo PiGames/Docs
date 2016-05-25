@@ -1,0 +1,27 @@
+TILEMAPMAP FILE FORMAT
+----------------------
+Obecna wersja formatu: 1.0
+
+Pliki map są zapisywane jako Plain Text (w trybie tekstowym) i składają się z sekcji:
+[header]
+[version]
+[size_w] [size_h]
+[data]
+
+Każda sekcja rozpoczyna się w osobnej linii i zawierająco następująco
+- [header] (string); stała część każdego pliku, zawierająca magiczną wartość "BOMBERMAN_LEVEL", 
+   w razie braku tego nagłówka należy przerwać wczytywanie pliku i zwrócić błąd
+- [version] (float); informacja o wersji formatu (przydatne w momencie wczytania poziomu zawierającego nowsze niewspierane wcześniej feature'y), 
+   jeżeli wersja nie jest wspierana przez parser należy zwrócić błąd, w przeciwnym wypadku skonwertować plik do nowszej wersji
+- [size w] [size_h]; szerokość i wysokość poziomu jako liczba całkowita z zakresu [0,0xffff]
+- [data] (uint16_t); sekcja danych zawierające o kaflach w postaci liczb całkowitych z zakresu [0, 0xffff]; kolejne numery są oddzielone białymi znakami (spacja lub nowa linia)
+
+
+Przykłady:
+(example1.txt):
+BOMBERMAN_LEVEL
+1.0
+3 3
+0 0 0
+1 2 3
+0 0 0
