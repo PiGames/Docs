@@ -2,7 +2,7 @@
 W.I.P - kolejność narazie losowa, mile widziane propozycje
 
 ###Brace Style
-Bloki kodu uznaczamy klamrami "piramidkowymi"
+Bloki kodu oznaczamy klamrami "piramidkowymi"
 
 **DOBRZE**
 ```cpp
@@ -20,7 +20,7 @@ void foo()  {
 ```
 
 ###Indendation
-Wciężka w kodzie robimy przy użyciu pojedynczego **tabulatora** a nie 2 lub 4 spacji!
+Wcięcia w kodzie robimy przy użyciu pojedynczego **tabulatora** a nie 2 lub 4 spacji!
 
 **DOBRZE**
 ```cpp
