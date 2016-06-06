@@ -41,7 +41,7 @@ Przez *CT (Code Tester)* rozumiemy osobę odpowiedzialną za przeprowadzenie *CR
 
 ##Przykład
 Posłużymy się tutaj przykładową osobą (Jan Kowalski [JK]), która otrzyma jakieś zadanie i będzie musiała je wykonać, 
-jak powinny wyglądać akcje JK oraz Team Leadera [TL] (który jest w tym przypadku także CT) przy użyciu Trello?
+jak powinny wyglądać akcje JK oraz Team Leadera [TL] - który jest w tym przypadku także CT - przy użyciu Trello?
 
 #####Spotkanie projektowe
 1. **JK** zostaje wybrany przez **TL** do wykonania zadania
