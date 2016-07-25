@@ -1,39 +1,40 @@
-#C\# Style Guide
-Poradnik wzorowany na [Official Unity C# Coding Guidelines](http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines)
+# C\# Style Guide
+Poradnik wzorowany na [Unity C# Coding Guidelines](http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines)
 
-##Bracing
-Klamry powinny się pojawiać **zawsze** przy blokach kodu, klamra otwierająca powinna być w *nowej linii*, podobnie klamra zamykająca. 
-Zawartość bloku powinna posiadać wcięcie o wielkości 1 tabulatora lub 4 spacji.
+## Bracing
+
+Klamry powinny pojawiać się **zawsze** przy blokach kodu, klamra otwierająca **musi** być w nowej linii, podobnie klamra zamykająca blok kodu. 
+Zawartość bloku powinna posiadać wcięcie o wielkości *1 tabulatora* lub *4 spacji*.
 ```csharp
-void foo()
+void Foo()
 {
-	bar();
+	Bar();
 }
 ```
 
-Bloki `case` powinny wyglądać jak poniżej
+Bloki `case` powinny wyglądać tak jak poniżej:
 ```csharp
 switch(abc)
 {
 	case 1:
-		doSomethingInOneLine();
+		DoSomethingInOneLine();
 		break;
 	// <- 1 pusta linia odstępu pomiędzy case'ami
 	case 2:
 	{
-		foo(); // <- wiele linii instrukcji = kod w klamrach
-		bar();
+		Foo(); // <- wiele linii instrukcji = kod w klamrach
+		Bar(); //
 		break;
 	}
 	
 	default:
-		doSomethingElse();
+		DoSomethingElse();
 		break;
 }
 ```
 
 ## Wyrażenia w jednej linii
-Starajmy się unikać sytuacji w których tworzymy wyrażenie składające się z jednej linii, jeżeli takie się pojawi to *musi* być zawarte w klamrach
+Starajmy się unikać sytuacji w których tworzymy wyrażenie składające się z jednej linii, jeżeli takowe się pojawią to *muszą* być zawarte w klamrach
 
 ```csharp
 public class Foo
@@ -49,7 +50,7 @@ public class Foo
 ```
 
 ## Komentowanie
-Komentujemy kod *wyłącznie* w języku angielskim. Do komentowania używamy `//` zarówno do bloków komentarzy, jak o krótkich komentarzy.
+Komentujemy kod *wyłącznie* w języku angielskim. Do komentowania używamy `//` zarówno do bloków komentarzy, jak do krótkich komentarzy liniowych.
 
 ```csharp
 // This is some class description
@@ -58,7 +59,7 @@ public class Spam
 {
 	public int foo; // var doing something
 	
-	void test()
+	void Test()
 	{
 		int bar = 2; // temporary variable
 		
