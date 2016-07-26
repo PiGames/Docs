@@ -72,7 +72,7 @@ public class Spam
 
 ## Spacing
 
-Należy robić odstępy pomiędzy elementami wymieniamymi po przecinku, podobnie pomiędzy dwustronnymi operatorami
+Należy robić odstępy pomiędzy elementami wymieniamymi po przecinku, podobnie pomiędzy dwustronnymi operatorami oraz słowami kluczowymi typu: `if while for return catch`
 DOBRZE
 ```csharp
 // ex1
@@ -93,6 +93,12 @@ void Bar(int x, float b)
 
 // ex4
 void Spam()
+{
+
+}
+
+// ex5
+while (expression)
 {
 
 }
@@ -118,6 +124,12 @@ void Bar(int x,float b) // brak odstępu pomiędzy argumentami
 
 // ex4
 void Spam () // odstęp pomiędzy nazwą funkcji, a nawiasami
+{
+
+}
+
+// ex5
+while(expression) // brak odstępu pomiędzy słowem kluczwym 'while', a nawiasem
 {
 
 }
