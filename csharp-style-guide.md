@@ -72,7 +72,8 @@ public class Spam
 
 ## Spacing
 
-Należy robić odstępy pomiędzy elementami wymieniamymi po przecinku, podobnie pomiędzy dwustronnymi operatorami oraz słowami kluczowymi typu: `if while for return catch`
+Należy robić odstępy pomiędzy elementami wymieniamymi po przecinku, podobnie pomiędzy dwustronnymi operatorami oraz słowami kluczowymi typu: `if while for return catch`.
+
 DOBRZE
 ```csharp
 // ex1
