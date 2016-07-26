@@ -79,7 +79,8 @@ DOBRZE
 Foo(a, 10, 0x32);
 
 // ex2
-if (a > 10 && b <= 32)
+if (a > 10 && 
+	b <= 32)
 {
 	...
 }
@@ -103,7 +104,8 @@ void Spam()
 Foo(a,10 ,0x32); // brak odstępów pomiędzy argumentami, odstęp w złym miejscu
 
 // ex2
-if (a>10 && b<= 32) // brak odstępów pomiędzy >, brak odstępu z lewej strony <=
+if (a>10 && 
+	b<= 32) // brak odstępów pomiędzy >, brak odstępu z lewej strony <=
 {
 	...
 }
@@ -192,6 +194,30 @@ public class MyClass : MonoBehavior
 		_myFloat = myFloat - myVar;
 	}
 }
+```
+
+## Złożone wyrażenia
+
+Jeżeli wyrażenie składa się z więcej niż jednego warunku (tzn. jest połączone operatorem || lub AND), to należy
+poszczególne warunki podzielić na pojedyncze linie z wcięciem o wielkości odpowiednio 1 taba lub 4 spacji.
+
+**Nawias otwierający** powinien być w tej samej linii co `if` oraz pierwszy warunek, **operatory logiczne** muszą być w tej samej linii co lewa część warunku. **Nawias zamykający** powinien być w tej samej linii co ostatni warunek.
+
+```csharp
+if (expr1 ||
+	expr2 &&
+	expr3)
+{
+	DoSomething();
+}
+```
+
+Podobnie się tyczy wyrażeń zwracanych przy użyciu `return`, np:
+
+```csharp
+return (expr1 || 
+	expr2 &&
+	expr3);
 ```
 
 ## ToDo
