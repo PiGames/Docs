@@ -233,4 +233,91 @@ return (expr1 ||
 	expr3);
 ```
 
+## Odstępy pomiędzy blokami kodu
+
+Jeżeli występuje po sobie w jednym bloku kodu złożonych z klamer { } więcej niż 4 instrukcje, to należy oddzielić je znakiem nowej 
+linii. Linie kodu **nie powinny** być rozdzielane na sztywno, tzn: 4 instrukcje, nowa linia; 4 instrukcje nowa linia, a **powinny** 
+być rozdzielane tak aby zgadzał się ich jeden kontekst.
+
+ŹLE
+
+```csharp
+DoSomethingPart1();
+DoSomethingPart2();
+DoSomethingPart3();
+DoSomethingElsePart1();
+DoSomethingElsePart2();
+Foo();
+Bar();
+```
+
+DOBRZE
+
+```csharp
+DoSomethingPart1(); // "DoSomething" Group
+DoSomethingPart2(); //
+DoSomethingPart3(); //
+
+DoSomethingElsePart1(); // "DoSomethingElse" Group
+DoSomethingElsePart2(); //
+
+Foo(); // "Misc" Group
+Egg(); // for single, not related instructions
+```
+
+## Estetyka / czystość kodu
+
+Kod **musi** być estetyczny / czysty, tzn. **nie może** zawierać zbędnych odstępów (max mogą być 2), niepotrzebnych klauzuli typu `using`, 
+martwego oraz śmieciowego kodu.
+
+ŹLE
+
+```csharp
+using UnityEngine.UI; // nieużuwane nigdzie UI
+// zbyt duża ilość znaków nowej linii od deklaracji klasy
+
+
+
+public class MyClass
+{
+	public int deadVariable; // zmienna używana w matrwej metodzie -> zmienna jest marta
+	public int b;
+	
+	MyClass()
+	{
+		Init(); // konstruktor = Init(), niepotrzebne przeniesienie do osobnej metody
+	}
+	
+	void Init()
+	{
+		int a = 2;
+		b = a + 3;
+		
+		// a = 7 - b; // junk code, nie trzymamy takiego kodu (od trzymania starych wersji kodu są repozytoria)
+		// b = 32;
+		// DeadMethod();
+	}
+	
+	void DeadMethod() // martwa metoda, nigdzie nie jest wywoływana
+	{
+		deadVariable = 3;
+	}
+}
+```
+
+DOBRZE
+
+```csharp
+public class MyClass
+{
+	public int b;
+	
+	MyClass()
+	{
+		int a = 2;
+		b = a + 3;
+	}
+}
+```
+
 ## ToDo
