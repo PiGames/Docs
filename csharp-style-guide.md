@@ -5,6 +5,7 @@ Poradnik wzorowany na [Unity C# Coding Guidelines](http://wiki.unity3d.com/index
 
 Klamry powinny pojawiać się **zawsze** przy blokach kodu, klamra otwierająca **musi** być w nowej linii, podobnie klamra zamykająca blok kodu. 
 Zawartość bloku powinna posiadać wcięcie o wielkości *1 tabulatora* lub *4 spacji*.
+
 ```csharp
 void Foo()
 {
@@ -34,6 +35,7 @@ switch(abc)
 ```
 
 ## Wyrażenia w jednej linii
+
 Starajmy się unikać sytuacji w których tworzymy wyrażenie składające się z jednej linii, jeżeli takowe się pojawią to *muszą* być zawarte w klamrach
 
 ```csharp
@@ -50,6 +52,7 @@ public class Foo
 ```
 
 ## Komentowanie
+
 Komentujemy kod *wyłącznie* w języku angielskim. Do komentowania używamy `//` zarówno do bloków komentarzy, jak do krótkich komentarzy liniowych.
 
 ```csharp
@@ -163,6 +166,7 @@ np `void spawnEnemy()`, `int strength`. Wyjątkiem są nazwy wchodzące "w stand
 jednakże dozwolone jest wiele klas **wewnętrznych**
 * nazwa pliku = nazwa klasy publicznej
 * członkowie klasy powinni być pogrupowani wg kolejności: 
+	0. struktury wewnętrzne
 	1. pola (publiczne, chronione, prywatne)
 	2. parametry (setters, getters)
 	3. konstruktory
@@ -177,6 +181,13 @@ using UnityEngine;
  
 public class MyClass : MonoBehavior
 {
+	// struktury
+	struct MyStruct
+	{
+		int x;
+		float y;
+	}
+
 	// pola
 	public int myPublicVar;
 	float _myFloat;
