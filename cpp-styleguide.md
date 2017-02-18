@@ -1,111 +1,227 @@
-#C++ Code Style Guide
-W.I.P - kolejność narazie losowa, mile widziane propozycje
+# C++ Code Style Conventions
 
-###Brace Style
-Bloki kodu oznaczamy klamrami "piramidkowymi"
+## Ogólnie
 
-**DOBRZE**
+**Używaj tabulatora równemu 4 spacjom.**
+
+**Używaj wszędzie następujących klamer (if, else, funkcje, struktury, definicje klas, itd.).**
+
 ```cpp
-void foo()
+if ( x )
 {
-	...
+    // Kod
+}
+```
+**Deklarację *else* lub *else if ( x )* rozpoczynaj w tej samej linii, gdzie znajduje się klamra zamykająca.**
+
+```cpp
+if ( x )
+{
+    // Kod
+} else if ( x )
+{
+    // Kod
+} else
+{
+    // Kod
 }
 ```
 
-**ŹLE**
+**Rozdzielaj spacjami wyrażenia **
 ```cpp
-void foo()  {
-	...
+if ( x )
+{
+    // Kod
 }
 ```
-
-###Indendation
-Wcięcia w kodzie robimy przy użyciu pojedynczego **tabulatora** a nie 2 lub 4 spacji!
-
-**DOBRZE**
+zamiast
 ```cpp
-void foo()
+if (x)
 {
-	// tab
+    // Kod
 }
 ```
-
-**ŹLE**
+oraz
 ```cpp
-void foo()
-{
-    // 4 spacje
-}
-
-void bar()
-{
-  // 2 spacje
-}
+x = ( y * 0.5f );
+```
+zamiast
+```cpp
+x = (y * 0.5f);
 ```
 
-###Naming
-Do nazywania stosujemy **pełnych i angielskich** nazw pisanych przy użyciu **CamelCase**.
 
-**DOBRZE**
+**Precyzyjnie określaj typ liczby rzeczywistej *float* , chyba, że jest jakiś powód aby był to *double*.**
 ```cpp
-int myLocalVariable;
-void myFunction()
-{
-	// code
-}
+float f = 0.5f;
+```
+zamiast
+```cpp
+float f = 0.5;
+```
+oraz
+```cpp
+float f = 1.0f;
+```
+zamiast
+```cpp
+float f = 1.f;
 ```
 
-**ŹLE**
+**Nazwy funkcji rozpoczynaj z wielkiej litery:**
 ```cpp
-int a;
-void f()
-{
-	// code
-}
+void Function();
+```
+**Jeśli nazwa funkcji składa się z wielu słów, każde słowo rozpoczynaj z wielkiej litery:**
+```cpp
+void VeryLongName();
 ```
 
-###Naming - Classes
-**Nazwy klas** rozpoczynamy dużą literą, np *MyClass*
 
-**DOBRZE**
+**Standardowy nagłówek funkcji to:**
 ```cpp
-class MyClass
+/*
+====================
+Created by: NazwaTwórcy
+NazwaFunkcji
+    Opis
+====================
+*/
+```
+
+
+**Nazwy zmiennych i pól rozpoczynaj małą literą.**
+```cpp
+float myVariable;
+```
+
+**Nazwy stworzone za pomocą *using* nazywaj tak samo jak zmienne, a także zawsze dodawaj przyrostek *_t*.**
+```cpp
+using entityID_t = uint32_t;
+```
+**Struktury nazywaj tak samo jak zmienne, a także zawsze dodawaj przyrostek *_t*.**
+```cpp
+struct myStruct_t;
+```
+**Enumy nazywaj tak samo jak zmienne, a także zawsze dodawaj przyrostek *_t*. Stałe zapisuj wielką literą. Wiele słów rozdzielaj znakiem podkreślenia.**
+```cpp
+enum contact_t
 {
-	...
+    CONTACT_NONE,
+    CONTACT_AABB
+};
+```
+**Do nazw funkcji rekurencyjnych dodawaj przyrostek *_r***
+```cpp
+void SomeFunction_r( int something );
+```
+**Zmienne zdefiniowane za pomocą *constexpr* zapisuj wielką literą. Wiele słów rozdzielaj znakiem podkreślenia.**
+```cpp
+constexpr size_t MAX_ENTITY_COUNT = 512'000; 
+```
+**Używaj *const* zawsze gdy jest to możliwe.**
+Pisz:
+```cpp
+const int *p;           // Wskaźnik na const int
+int * const p;          // const wskaźnik na int
+const int * const p     // const wskaźnik na const int
+```
+Nie pisz:
+```cpp
+int const *p;
+```
+
+## Klasy
+
+**Standardowy nagłówek klasy to:**
+```cpp
+/*
+===============================================================================
+Created by: NazwaTwórcy
+	Opis
+
+===============================================================================
+*/
+```
+
+**Klasy pisz w *namespace pi*.**
+```cpp
+namespace pi
+{
+    class Vec3;
+}
+```
+**Pola klas mają takie same nazewnictwo jak zmienne.**
+```cpp
+class Vec3
+{
+    float x;
+    float y;
+    float z;
 };
 ```
 
-**ŹLE**
+**Metody mają takie same nazewnictwo jak funkcje.**
 ```cpp
-// 1
-class myclass
+class Vec3 
 {
-	...
-};
-
-// 2
-class myClass
-{
-	...
-};
+    float Length() const;
+}
 ```
 
-**Pola publiczne** rozpoczynamy z małej litery, **metody publiczne** rozpoczynamy wielką literą. 
+**Kolejność pól i metod klasy powinna być następująca:**
+1. przyjaźnie klasy (*friend*)
+2. publiczne pola
+3. publiczne metody
+4. chronione pola
+5. chronione metody
+6. prywatne pola
+7. prywatne metody
+Pozwala to na łatwe odszukanie publicznego interfejsu klasy.
 
-Z kolei **pola prywatne** rozpoczynamy prefiksem *"m_"* oraz małą literą, **metody prywatne** rozpoczynamy małą literą. Np.
+**Zwasze zaznaczaj metody klasy *const* jeśli nic nie modyfikują.**
+**Omijaj *const_cast*. Gdy obiekt musi zostać zmodyfikowany, ale dostępne są tylko wersje *const*, napisz metodę, która w czytelny sposób udostępni modyfikowalną wersję obiektu. Pozwali to utrzymać kontrolę nad *stałością* w rękach obiektu, a nie użytkownika.**
+
+**Zwracaj *const* chyba, że celem metody jest zmiana obiektu.**
+
+**Przeładowanie metod powinno być omijane w większości przypadków. Na przykład:**
+zamiast
 ```cpp
-class MyClass
+    const std::shared_ptr<Animation> GetAnimation( uint32_t index ) const;
+    const std::shared_ptr<Animation> GetAnimation( const char *name ) const;
+    const std::shared_ptr<Animation> GetAnimation( float randomDiversity ) const;
+```
+pisz
+```cpp
+    const std::shared_ptr<Animation> GetAnimationByIndex( uint32_t index ) const;
+    const std::shared_ptr<Animation> GetAnimationByName( const char *name ) const;
+    const std::shared_ptr<Animation> GetRandomAnimation( float randomDiversity ) const;
+```
+**Poprawnie nazwane metody będą tworzyły mniej błędów przez ich złe wywoływanie. Przykład:**
+```cpp
+const std::shared_ptr<Animation> GetAnimation( 0 );
+```
+**Może to być rozumiane jako prośba o losową animację, ale kompilator mógłby to zinterpretować jako prośba o animację o indeksie *0*.**
+
+**Dozwolone jest przeciążanie funkcji ze względu na typ zwracany *const*:**
+```cpp
+class AnimatedEntity : public Entity
 {
-public:
-	int myPublicVariable;
-	
-	MyClass();
-	void MyPublicMethod();
-	
-private:
-	int m_myPrivateVariable;
-	void myPrivateMethod();
+    std::shared_ptr<Animator> GetAnimator();
+    const std::shared_ptr<Animator> GetAnimator() const;
 };
 ```
+**W tym przypadku stała wersja *GetAnimator* została stworzona w celu umożliwienia wywołania jej w metodach *const*. Ponieważ *AnimatedEntity* zazwyczaj nie jest stałym obiektem, jest to dozwolone.**
 
-*todo ...*
+## Nazwy plików
+
+**Każda klasa powinna znajdować się w oddzielnym pliku, o ile ma sens stworzenie kilku małych klas w jednym pliku.**
+**Nazwa pliku powinna być taka sama jak nazwa klasy.**
+```cpp
+class MyClass;
+```
+pliki:
+```
+MyClass.cpp
+MyClass.hpp
+```
