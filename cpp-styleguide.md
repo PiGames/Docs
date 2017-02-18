@@ -170,13 +170,21 @@ class Vec3
 ```
 
 **Kolejność pól i metod klasy powinna być następująca:**
+
 1. przyjaźnie klasy (*friend*)
-2. publiczne pola
+
+2. publiczne pola  
+
 3. publiczne metody
+
 4. chronione pola
+
 5. chronione metody
+
 6. prywatne pola
+
 7. prywatne metody
+
 Pozwala to na łatwe odszukanie publicznego interfejsu klasy.
 
 **Zwasze zaznaczaj metody klasy *const* jeśli nic nie modyfikują.**
