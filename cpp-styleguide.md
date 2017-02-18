@@ -27,7 +27,7 @@ if ( x )
 }
 ```
 
-**Rozdzielaj spacjami wyrażenia **
+**Rozdzielaj wyrażenia spacjami:**
 ```cpp
 if ( x )
 {
