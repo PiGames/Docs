@@ -161,11 +161,19 @@ class Vec3
 };
 ```
 
-**Metody mają takie same nazewnictwo jak funkcje.**
+**Publiczne metody mają takie same nazewnictwo jak funkcje.**
 ```cpp
 class Vec3 
 {
     float Length() const;
+}
+```
+**Prywatne metody rozpoczynaj z małej litery.**
+```cpp
+class MyClass
+{
+private:
+	void myPrivateMethod();	
 }
 ```
 
