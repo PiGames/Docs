@@ -175,7 +175,7 @@ class MyClass
 {
 private:
 	void myPrivateMethod();	
-}
+};
 ```
 **Do pól i metod klasy odwołuj się za pomocą *this->*.**
 ```cpp
@@ -183,11 +183,11 @@ class MyClass
 {
 	float myVar;
 	
-	void myFunction()
+	void myMethod()
 	{
-		this->var++;
+		this->myVar++;
 	}
-}	
+};	
 ```
 
 **Kolejność pól i metod klasy powinna być następująca:**
