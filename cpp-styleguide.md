@@ -68,13 +68,13 @@ zamiast
 float f = 1.f;
 ```
 
-**Nazwy funkcji rozpoczynaj z wielkiej litery:**
+**Nazwy funkcji rozpoczynaj z wielkiej małej:**
 ```cpp
-void Function();
+void function();
 ```
 **Jeśli nazwa funkcji składa się z wielu słów, każde słowo rozpoczynaj z wielkiej litery:**
 ```cpp
-void VeryLongName();
+void veryLongName();
 ```
 
 
@@ -111,9 +111,9 @@ enum contact_t
     CONTACT_AABB
 };
 ```
-**Do nazw funkcji rekurencyjnych dodawaj przyrostek *_r***
+**Do nazw funkcji rekurencyjnych dodawaj przyrostek *_r*.**
 ```cpp
-void SomeFunction_r( int something );
+void fomeFunction_r( int something );
 ```
 **Zmienne zdefiniowane za pomocą *constexpr* zapisuj wielką literą. Wiele słów rozdzielaj znakiem podkreślenia.**
 ```cpp
@@ -161,20 +161,33 @@ class Vec3
 };
 ```
 
-**Publiczne metody mają takie same nazewnictwo jak funkcje.**
+**Publiczne metody mają takie same nazewnictwo jak funkcje, ale rozpoczynają się z wielkiej litery.**
 ```cpp
 class Vec3 
 {
+public:
     float Length() const;
 }
 ```
-**Prywatne metody rozpoczynaj z małej litery.**
+**Prywatne metody mają takie same nazewnictwo jak funkcje.**
 ```cpp
 class MyClass
 {
 private:
 	void myPrivateMethod();	
 }
+```
+**Do pól i metod klasy odwołuj się za pomocą *this->*.**
+```cpp
+class MyClass
+{
+	float myVar;
+	
+	void myFunction()
+	{
+		this->var++;
+	}
+}	
 ```
 
 **Kolejność pól i metod klasy powinna być następująca:**
