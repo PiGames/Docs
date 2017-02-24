@@ -68,11 +68,11 @@ zamiast
 float f = 1.f;
 ```
 
-**Nazwy funkcji rozpoczynaj z wielkiej małej:**
+**Nazwy funkcji rozpoczynaj z małej litery:**
 ```cpp
 void function();
 ```
-**Jeśli nazwa funkcji składa się z wielu słów, każde słowo rozpoczynaj z wielkiej litery:**
+**Jeśli nazwa funkcji składa się z wielu słów, każde następne słowo rozpoczynaj z wielkiej litery:**
 ```cpp
 void veryLongName();
 ```
