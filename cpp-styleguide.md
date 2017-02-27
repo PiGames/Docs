@@ -76,7 +76,10 @@ void function();
 ```cpp
 void veryLongName();
 ```
-
+**Zawsze nazywaj argumenty funkcji.**
+```cpp
+void function( float x, uint8_t index );
+```
 
 **Standardowy nagłówek funkcji to:**
 ```cpp
@@ -188,6 +191,36 @@ class MyClass
 		this->myVar++;
 	}
 };	
+```
+**Metody jedno i dwu linijkowe zapisuj w miejscu deklaracji.**
+```cpp
+class MyClass
+{
+public:
+	float GetSomething() const
+	{
+		return this->value;
+	}
+}
+```
+
+**Dziedziczone metody zaznaczaj słowem *override*.**
+```cpp
+struct MyStruct
+{
+	virtual void SayHello()
+	{
+		std::cout<<" Common Hello! ";
+	}
+};
+
+struct Zmienny :public MyStruct
+{
+	void SayHello() override
+	{
+		std::cout<< "Hurr durr";
+	}
+}
 ```
 
 **Kolejność pól i metod klasy powinna być następująca:**
