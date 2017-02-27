@@ -80,6 +80,10 @@ void veryLongName();
 ```cpp
 void function( float x, uint8_t index );
 ```
+**Typy inne niż standardowe przekazuj za pomocą *const&*.**
+```cpp
+void function( const Vec2& position, char var );
+```
 
 **Standardowy nagłówek funkcji to:**
 ```cpp
