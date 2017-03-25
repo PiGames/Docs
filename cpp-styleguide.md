@@ -218,7 +218,8 @@ struct MyStruct
 	}
 };
 
-struct Zmienny :public MyStruct
+struct Zmienny :
+	public MyStruct
 {
 	void SayHello() override
 	{
@@ -226,6 +227,24 @@ struct Zmienny :public MyStruct
 	}
 }
 ```
+
+**Dziedziczenie i listę inicjalizacyjną zapisuj w postaci kolumny:**
+```cpp
+struct MyStruct :
+	public OtherStruct,
+	public MoreStructs
+{
+	int8_t myInt;
+	char someChar;
+	
+	MyStruct( int8_t myInt mIt, char smChr ) :
+		myInt( mIt ),
+		someChar( smChr )
+	{}
+};
+```
+
+## **Nigdy nie nazywaj argumentów metody lub konstruktora tak samo jak pola klasy lub struktury!**
 
 **Kolejność pól i metod klasy powinna być następująca:**
 
