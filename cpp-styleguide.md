@@ -67,6 +67,11 @@ zamiast
 ```cpp
 float f = 1.f;
 ```
+**Używaj nazw liczb całkowitych (*intów*) zadeklarowanych w nagłówku *cinttypes*.**
+```cpp
+uint8_t index;
+int64_t giant;
+```
 
 **Nazwy funkcji rozpoczynaj z małej litery:**
 ```cpp
@@ -237,7 +242,7 @@ struct MyStruct :
 	int8_t myInt;
 	char someChar;
 	
-	MyStruct( int8_t myInt mIt, char smChr ) :
+	MyStruct( int8_t mIt, char smChr ) :
 		myInt( mIt ),
 		someChar( smChr )
 	{}
@@ -249,17 +254,11 @@ struct MyStruct :
 **Kolejność pól i metod klasy powinna być następująca:**
 
 1. przyjaźnie klasy (*friend*)
-
 2. publiczne pola  
-
 3. publiczne metody
-
 4. chronione pola
-
 5. chronione metody
-
 6. prywatne pola
-
 7. prywatne metody
 
 Pozwala to na łatwe odszukanie publicznego interfejsu klasy.
@@ -305,7 +304,7 @@ class AnimatedEntity : public Entity
 ```cpp
 class MyClass;
 ```
-pliki:
+Pliki:
 ```
 MyClass.cpp
 MyClass.hpp
